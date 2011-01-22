@@ -4,8 +4,14 @@ PostInstall.txt
 README.rdoc
 Rakefile
 lib/school_days.rb
+rails_generators/school_days_config/USAGE
+rails_generators/school_days_config/school_days_config_generator.rb
+rails_generators/school_days_config/templates/school_days.rb
+rails_generators/school_days_config/templates/school_days.yml
 script/console
 script/destroy
 script/generate
+test/test_generator_helper.rb
 test/test_helper.rb
 test/test_school_days.rb
+test/test_school_days_config_generator.rb

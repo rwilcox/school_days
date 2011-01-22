@@ -1,0 +1,5 @@
+Description:
+Creates a school_days.yml config file and an initializer that loads the school days gem into your Rails app.
+
+Usage:
+  script/generate school_days_config
