@@ -1,0 +1,16 @@
+school_days:
+  school_sessions:
+    fall_semester:
+        start_date: Aug 29, 2011
+        end_date: December 15, 2012
+    spring_semester:
+        start_start: January 15, 2012
+        end_date: May 15, 2012
+  exceptions:
+    holidays:
+      - Jan 01, 2010
+      - July 4th, 2010
+      - December 25th, 2010
+    included_days:
+      - Aug 29, 2011
+      - May 29, 2011
