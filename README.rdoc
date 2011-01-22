@@ -9,7 +9,7 @@ Like Business Time (https://github.com/bokmann/business_time), this gem has supp
 Unlike Business Time, School Days focuses on the demands of keeping a school calendar
 
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
 With School Days you can:
 
@@ -22,15 +22,77 @@ In the school days configuration you can
   * Be able to set exceptional "in" days ("Normally, there is no school on Saturday, but we need to in this case")
   * Be able to set exceptional "out" days (Weather days, for example)
 
+== PROBLEMS
+School Days only handles school day calculations. Unlike business time, which includes hour and minute level calculations, School Days deals only with days. This is a reasonable tradeoff, and does have some implementation advantages.
+
+For example, most school districts define a school day as being at least 4 hours of instructional time. If we supported sub-day calculations then the possibility of school being cancelled after 2 hours exists, and school days vs school hours getting unsynced is a possibility.
+
+Yes, I acknowledge that this might be a problem, as technically a school year is N hours long (not M days). Schools might gain an extra day, in time of prolonged emergency, by adding an extra few minutes onto their school day (for the last 10 weeks, for example).
+
+This gem focuses on the naive solution of managing this at the day level, and avoids this kind of accounting practice.
+
 == SYNOPSIS:
 
+Yes, I know a lot about school calendars and how they operate. My mom is a school teacher (Hi Mom!!!), who taught in the same school us kids went to... so I learned a lot about school scheduling.
+
+I learned even more over the years when various disasters (snow storms, fires) happened and I watched the school calendar being adjusted in various ways.
+
 == REQUIREMENTS:
+
+This gem is meant to be used in a Rails (2) project. It will probably work in a Rails 3 environment, but this hasn't been tested yet (and I know the generator will not work)
 
 == INSTALL:
 
 gem install school_days
 
 in your Rails project, execute the generator to get a yaml file that gives you calendar configuration options
+
+script/generate school_days_config
+
+This will install an initializer and a yaml file (config/school_days.yml).
+
+
+== CONFIGURING SCHOOL DAYS:
+
+School days are a fickle beast. This gem has intelligent defaults, but I've also seen an amazing amount of variety in school calendars
+
+config/school_days.yml has one top level key (school_days) with the following subkeys:
+
+* school_sessions
+
+A school might have one session (think a school that runs from August until June, with a 3 month summer vacation). A school might also run on an increasingly popular 10 week session with 2 week vacation, running all year.
+
+The school sessions structure also allows this gem to be used by higher education (semester, trimester, and quarter system schools), in addition to primary/secondary education.
+
+Each subkey in the sessions section are named (arbitrary name), but each subkey must have a start_date and end_date.
+
+
+* exceptions
+
+By default, school_days assumes that every week day during a session is a school day. This is incorrect, and you can configure these exceptions here.
+
+This key has two subkeys:
+
+  * holidays
+  
+  This is a flat list of dates where there is no class
+  
+  * included_days
+  
+  I've seen schools have school days on a Saturday, in very rare circumstances. included_days list days where you would normally not have school (weekends)... but you do this year.
+  
+Days listed in any exceptions subkey have extreme override abilities - you could set your school year to end on June 1, 2011... but an included_day which includes June 2, 2011 means that June 2, 2011 is a school day.  
+
+== WHAT THIS GEM DOES NOT DO: 
+
+This gem is meant for ONE school calendar. This gem does not address the situation where you are (for example) writing a state level website and have multiple school districts each with their own calendar.
+
+If you do need such functionality, I suggest you make a pull request.
+
+It also does not deal with in-service days. This gem is only worried about days children are in school.
+
+This gem also relies on manual configuration every year. It can not possibly know the school holidays of your individual school, so it doesn't try. I realize this requires someone to remember to update the configuration to put new school information in.
+
 
 == NOTE ON PATCHES/PULL REQUESTS:
 
