@@ -1,5 +1,4 @@
 
-require 'school_days/config'
 
 module SchoolDays
   def school_day?

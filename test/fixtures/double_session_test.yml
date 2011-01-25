@@ -2,7 +2,7 @@ school_days:
   school_sessions:
     fall_semester:
         start_date: Aug 29, 2011
-        end_date: December 15, 2012
+        end_date: December 15, 2011
     spring_semester:
         start_date: January 15, 2012
         end_date: May 15, 2012

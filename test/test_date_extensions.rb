@@ -52,7 +52,10 @@ class TestDateExtensions < Test::Unit::TestCase
         assert !date.school_day?(), "Day outside school session still thinks its a school day"
       end
 
-      should "return true for school_day? if the date is inside the session (and not in exceptional included days)"
+      should "return true for school_day? if the date is inside the session (and not in exceptional included days)" do
+        date = Date.civil(2010, 10, 18)
+        assert date.school_day?
+      end
     end
 
     context "when looking at multiple school sessions" do
@@ -70,7 +73,11 @@ class TestDateExtensions < Test::Unit::TestCase
         assert !date.school_day?(), "Day between school sessions still thinks its a school day"
       end
 
-      should "return false for school_day? if a weekend is is outside ALL of the sessions (and not in exceptional included days)"
+      should "return false for school_day? if a weekend is is outside ALL of the sessions (and not in exceptional included days)" do
+        date = Date.civil(2012, 5, 31) # a thursday in 2012
+        assert !date.school_day?
+      end
+      
       should "return true for school_day? if the date is outside one session, but inside another"
     end
     
