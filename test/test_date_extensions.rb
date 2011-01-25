@@ -25,6 +25,21 @@ class TestDateExtensions < Test::Unit::TestCase
       assert !weekend.school_day?
     end
 
+    should "return true if the day is a school night" do
+      date = Date.civil(2011, 1, 27) #Thursday
+      assert date.school_night?
+    end
+
+    should "return false if the day is not a school night" do
+      date = Date.civil(2011, 1, 28) #Friday
+      assert !date.school_night?
+    end
+
+    should "return true before an exceptional included day" do
+      date = Date.civil(2011, 5, 28)
+      assert date.school_night?
+    end
+
     should "return false for school_day? if the day is flagged as a holiday" do
       days = (24..28).to_a # In January 2011 these are all weedays
       days.each do |day|
