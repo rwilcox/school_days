@@ -47,16 +47,29 @@ class TestDateExtensions < Test::Unit::TestCase
 
       end
 
-      should "return false for school_day? if the date is outside the session (and not in exceptional included days)"
+      should "return false for school_day? if the date is outside the session (and not in exceptional included days)" do
+        date = Date.civil(2011, 6, 2) # June 2 is a Thursday in 2011... but it's also outside the school session
+        assert !date.school_day?(), "Day outside school session still thinks its a school day"
+      end
+
       should "return true for school_day? if the date is inside the session (and not in exceptional included days)"
     end
 
     context "when looking at multiple school sessions" do
       setup do
-
+        SchoolDays.config.load( fixture_path() + "/double_session_test.yml" )
       end
 
-      should "return false for school_day? if a weekday is is outside ALL of the sessions (and not in exceptional included days)"
+      should "return false for school_day? if a weekday is is outside ALL of the sessions (and not in exceptional included days)" do
+        date = Date.civil(2012, 6, 2) # June 2 is a Thursday in 2011... but it's also outside the school session
+        assert !date.school_day?(), "Day outside school session still thinks its a school day"
+      end
+
+      should "return false for school_day if the weekday is between school sessions" do
+        date = Date.civil(2012, 12, 30) # Dec 30 is a Friday in 2011... but it's in between two school sessions
+        assert !date.school_day?(), "Day between school sessions still thinks its a school day"
+      end
+
       should "return false for school_day? if a weekend is is outside ALL of the sessions (and not in exceptional included days)"
       should "return true for school_day? if the date is outside one session, but inside another"
     end
