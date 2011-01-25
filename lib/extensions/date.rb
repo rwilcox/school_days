@@ -1,6 +1,7 @@
 
 
 module SchoolDays
+  module DateExtensions
   def school_day?
     # first, check the exceptional days and see if we can get a quick match
     return false if SchoolDays.config.holiday_exceptions.include? self
@@ -28,7 +29,8 @@ module SchoolDays
     (self + 1).school_day?
   end
 end
+end
 
 class Date
-  include SchoolDays
+  include SchoolDays::DateExtensions
 end
