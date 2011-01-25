@@ -17,8 +17,8 @@ class TestConfig < Test::Unit::TestCase
       conf = SchoolDays::ConfigBase.new
       conf.load( fixture_path() + "/simple_test.yml" )
 
-      assert_contains( conf.holiday_exceptions, Date.parse("Jan 01, 2010") )
-      assert_does_not_contain( conf.holiday_exceptions, Date.parse("Jan 02, 2010") )
+      assert_contains( conf.holiday_exceptions, Date.parse("Jan 01, 2011") )
+      assert_does_not_contain( conf.holiday_exceptions, Date.parse("Jan 02, 2011") )
     end
   end
 

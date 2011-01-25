@@ -1,13 +1,14 @@
 school_days:
   school_sessions:
     school_year:
-        start_date: Aug 29, 2011
-        end_date: June 1, 2012
+        start_date: Aug 29, 2010
+        end_date: June 1, 2011
   exceptions:
     holidays:
-      - Jan 01, 2010
-      - July 4th, 2010
+      - Jan 01, 2011
+      - July 4th, 2011
       - December 25th, 2010
+      - May 31, 2011
     included_days:
-      - Aug 29, 2011
+      - Aug 28, 2010
       - May 29, 2011
