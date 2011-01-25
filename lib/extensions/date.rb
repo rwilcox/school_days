@@ -27,10 +27,6 @@ module SchoolDays
   def school_night?
     (self + 1).school_day?
   end
-
-  def school_days_until(to_date)
-    
-  end
 end
 
 class Date
