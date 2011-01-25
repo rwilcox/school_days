@@ -1,10 +1,23 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
+
 class TestDateExtensions < Test::Unit::TestCase
 
   context "Date instances" do
     setup do
-      SchoolDays.config.load( fixture_path() + "/simple_test.yml" ) )
+      SchoolDays.config.load( fixture_path() + "/simple_test.yml" )
+    end
+
+    should "Date should respond to school_day?" do
+      assert_nothing_raised(Exception) { Date.today.school_day? }
+    end
+
+    should "return true for school_day if the day is a weekday" do
+      days = (24..28).to_a # In January 2011 these are all weedays
+      days.each do |day|
+        date = Date.civil(2011, 01, day)
+        assert date.school_day?
+      end
     end
 
     should "return false for school_day? if the day is a weekend"
