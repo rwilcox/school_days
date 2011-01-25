@@ -4,7 +4,7 @@ school_days:
         start_date: Aug 29, 2011
         end_date: December 15, 2012
     spring_semester:
-        start_date: January 15, 2012
+        start_start: January 15, 2012
         end_date: May 15, 2012
   exceptions:
     holidays:
