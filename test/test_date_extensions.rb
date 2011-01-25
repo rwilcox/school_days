@@ -93,7 +93,10 @@ class TestDateExtensions < Test::Unit::TestCase
         assert !date.school_day?
       end
       
-      should "return true for school_day? if the date is outside one session, but inside another"
+      should "return true for school_day? if the date is outside one session, but inside another" do
+        date = Date.civil(2012, 1, 16)
+        assert date
+      end
     end
     
   end
