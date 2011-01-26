@@ -40,6 +40,13 @@ module SchoolDays
         self.included_day_exceptions << Date.parse(extra_day)
       end
     end
+
+    def school_year_start
+      
+    end
+
+    def school_year_end
+    end
   end
 
   class Config < ConfigBase

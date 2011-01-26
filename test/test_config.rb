@@ -38,4 +38,14 @@ class TestConfig < Test::Unit::TestCase
       assert_raise(RuntimeError) {  conf.load( fixture_path() + "/invalid_config_test.yml" )   }
     end
   end
+
+  context "when loading a file with one session" do
+    should "be able to find the start date"
+    should "be able to find the end date"
+  end
+
+  context "when loading a file with multiple sessions" do
+    should "be able to find the first start date"
+    should "be able to find the last end date"
+  end
 end
