@@ -5,7 +5,7 @@
 module SchoolDays
   module FixnumExtensions
     def school_days
-      SchoolDays::SchoolDaysCalculator.new(self)
+      SchoolDays::Calculator.new(self)
     end
     alias :school_day :school_days
 
