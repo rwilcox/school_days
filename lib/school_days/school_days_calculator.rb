@@ -1,5 +1,3 @@
-require 'config'
-
 
 module SchoolDays
   class SchoolDaysCalculator
@@ -8,13 +6,16 @@ module SchoolDays
     end
 
     def after(time = Time.now)
-      # 2.school_days.after(tuesday)
-      date = time.to_date
+      # example: 2.school_days.after(tuesday)
+      date = time
+      date = time.to_date if time.is_a?(Time)
+
       @days.times do
         begin
           date = date + 1
         end until date.school_day?
       end
+      date
     end
     alias_method :from_now, :after
 
