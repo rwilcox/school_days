@@ -40,12 +40,30 @@ class TestConfig < Test::Unit::TestCase
   end
 
   context "when loading a file with one session" do
-    should "be able to find the start date"
-    should "be able to find the end date"
+    should "be able to find the start date" do
+      conf = SchoolDays::ConfigBase.new
+      conf.load( fixture_path() + "/simple_test.yml" )
+      assert_equal( Date.civil(2010, 8, 29).to_s, conf.school_year_start.to_s )
+    end
+
+    should "be able to find the end date" do
+      conf = SchoolDays::ConfigBase.new
+      conf.load( fixture_path() + "/simple_test.yml" )
+      assert_equal( Date.civil(2011, 6, 1).to_s, conf.school_year_end.to_s )
+    end
   end
 
   context "when loading a file with multiple sessions" do
-    should "be able to find the first start date"
-    should "be able to find the last end date"
+    should "be able to find the first start date" do
+      conf = SchoolDays::ConfigBase.new
+      conf.load( fixture_path() + "/double_session_test.yml" )
+      assert_equal( Date.civil(2011, 8, 29).to_s, conf.school_year_start.to_s )
+    end
+
+    should "be able to find the last end date" do
+      conf = SchoolDays::ConfigBase.new
+      conf.load( fixture_path() + "/double_session_test.yml" )
+      assert_equal( Date.civil(2012, 5, 15).to_s, conf.school_year_end.to_s )
+    end
   end
 end

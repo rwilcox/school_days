@@ -42,10 +42,17 @@ module SchoolDays
     end
 
     def school_year_start
-      
+      res = self.school_sessions.min do |a, b|
+        a[:start_date] <=> b[:start_date]
+      end
+      res[:start_date]
     end
 
     def school_year_end
+      res = self.school_sessions.max do |a, b|
+        a[:end_date] <=> b[:end_date]
+      end
+      res[:end_date]
     end
   end
 
