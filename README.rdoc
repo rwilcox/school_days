@@ -31,6 +31,11 @@ Yes, I acknowledge that this might be a problem, as technically a school year is
 
 This gem focuses on the naive solution of managing this at the day level, and avoids this kind of accounting practice.
 
+Another potential problem is using the N.school_day.before/after syntax will not handle exceptionally included days that land outside the earliest start date  and latest end date defined in the school sessions section.
+
+If you really need to define an exceptional included day outside the school year please submit a patch... else just extend your start dates or end dates. Yes, I do consider this a major drawback, and may reconsider this feature in the future... right now I don't need it enough to hold up release of this gem.
+
+
 == SYNOPSIS:
 
 Yes, I know a lot about school calendars and how they operate. My mom is a school teacher (Hi Mom!!!), who taught in the same school us kids went to... so I learned a lot about school scheduling.
