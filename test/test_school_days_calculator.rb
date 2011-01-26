@@ -34,8 +34,11 @@ class TestSchoolDaysCalculatorTest < Test::Unit::TestCase
         # so we expect May 2
       end
 
-      should "move to the next session if we have multiple sessions"
-      should "elegantly handle a situation where we go outside the school year"
+      should "move to the next session if we have multiple sessions" do
+        date = Date.civil(2011, 12, 12) # a Monday before semester break
+        assert_equal( Date.civil(2012, 1, 18), 5.school_days.after(date) )
+      end
+
       should "elegantly handle a situation where we go outside the school year" do
         date = Date.civil(2012, 5, 14)
         assert_raise(SchoolDays::DateNotInSchoolCalendar) { 1.school_day.after(date) }
@@ -43,11 +46,6 @@ class TestSchoolDaysCalculatorTest < Test::Unit::TestCase
     end
   end
 
-  context "identifying the session a date belongs in" do
-    should "be able find a session that a day is associated with"
-    should "return nil if it falls outside all sessions, when multiple sessions are present"
-    should "return nil if it falls outside all sessions, when a single session is present"
-  end
 
   context "identifying if a date is in the range of the whole school year" do
     context "with a single session" do
