@@ -42,6 +42,10 @@ module SchoolDays
 
     # another semi-private method. TODO: it seems useful to expose this, but how?
     def is_in_school_year?(date)
+      # included exceptional days can be outside the school year
+      return true if SchoolDays.config.included_day_exceptions.include? date
+
+      # ok, now check ranges
       SchoolDays.config.school_year_start < date && date < SchoolDays.config.school_year_end
     end
   end
