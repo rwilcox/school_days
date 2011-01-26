@@ -13,14 +13,14 @@ module SchoolDays
       @days.times do
         begin
           date = date + 1
+          raise SchoolDays::DateNotInSchoolCalendar unless is_in_school_year?(date)
+          # (if we are not in the school year at all, stop calculating, because
+          # once we go outside we'll never find another school day. WD-rpw 01-26-2011)
         end until date.school_day?
         # TODO: in here, check school_session_for_date for every new date
         # if it returns something different than our own (or nil) then we
         # need to do something clever. RPW 01-25-2011
 
-        # TODO: also check that the date is in the range of the school year at all
-        # (a date could be outside all sessions - during a semester break, for example,
-        # but still be inside the school year.)
       end
       date
     end

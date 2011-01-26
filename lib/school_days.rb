@@ -8,5 +8,10 @@ require File.dirname(__FILE__) + '/extensions/date'
 require File.dirname(__FILE__) + '/extensions/fixnum'
 
 module SchoolDays
+  class DateNotInSchoolCalendar < RuntimeError
+  end
+end
+
+module SchoolDays
   VERSION = '0.0.1'
 end

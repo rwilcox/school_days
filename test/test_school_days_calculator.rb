@@ -36,6 +36,10 @@ class TestSchoolDaysCalculatorTest < Test::Unit::TestCase
 
       should "move to the next session if we have multiple sessions"
       should "elegantly handle a situation where we go outside the school year"
+      should "elegantly handle a situation where we go outside the school year" do
+        date = Date.civil(2012, 5, 14)
+        assert_raise(SchoolDays::DateNotInSchoolCalendar) { 1.school_day.after(date) }
+      end
     end
   end
 
