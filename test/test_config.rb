@@ -43,7 +43,7 @@ class TestConfig < Test::Unit::TestCase
     should "be able to find the start date" do
       conf = SchoolDays::ConfigBase.new
       conf.load( fixture_path() + "/simple_test.yml" )
-      assert_equal( Date.civil(2010, 8, 29).to_s, conf.school_year_start.to_s )
+      assert_equal( Date.civil(2010, 8, 30).to_s, conf.school_year_start.to_s )
     end
 
     should "be able to find the end date" do

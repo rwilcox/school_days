@@ -8,10 +8,8 @@ school_days:
         end_date: May 15, 2012
   exceptions:
     holidays:
-      - Jan 01, 2010
-      - July 4th, 2010
-      - December 25th, 2010
+      - Jan 23, 2012
       - May 1, 2012
     included_days:
       - Aug 27, 2011
-      - May 29, 2011
+      - May 12, 2012

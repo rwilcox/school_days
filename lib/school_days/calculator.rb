@@ -17,17 +17,25 @@ module SchoolDays
           # (if we are not in the school year at all, stop calculating, because
           # once we go outside we'll never find another school day. WD-rpw 01-26-2011)
         end until date.school_day?
-        # TODO: in here, check school_session_for_date for every new date
-        # if it returns something different than our own (or nil) then we
-        # need to do something clever. RPW 01-25-2011
-
       end
       date
     end
     alias_method :from_now, :after
 
     def before(time = Time.now)
-      
+      # example: 2.school_days.after(tuesday)
+      date = time
+      date = time.to_date if time.is_a?(Time)
+
+      @days.times do
+        begin
+          date = date - 1
+          raise SchoolDays::DateNotInSchoolCalendar unless is_in_school_year?(date)
+          # (if we are not in the school year at all, stop calculating, because
+          # once we go outside we'll never find another school day. WD-rpw 01-26-2011)
+        end until date.school_day?
+      end
+      date      
     end
     alias_method :until, :before
 

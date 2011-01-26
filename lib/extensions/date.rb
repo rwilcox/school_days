@@ -18,7 +18,7 @@ module SchoolDays
 
       # ok, now check to see if this weekday is in the school sessions
       has_school = SchoolDays.config.school_sessions.any? do |current_session|
-        current_session[:start_date] < self && current_session[:end_date] > self
+        current_session[:start_date] <= self && current_session[:end_date] >= self
       end
     end
 

@@ -57,6 +57,16 @@ class TestDateExtensions < Test::Unit::TestCase
       assert date.school_day?
     end
 
+    should "return true when the date is equal to the start date of a session" do
+      d = Date.civil(2010, 8, 30) # a monday
+      assert d.school_day?
+    end
+
+    should "return true when the date is equal to the last date of a session" do
+      d = Date.civil(2011, 6, 1)
+      assert d.school_day?
+    end
+
     context "when looking at a single school session" do
       setup do
 

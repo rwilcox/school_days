@@ -1,7 +1,7 @@
 school_days:
   school_sessions:
     school_year:
-        start_date: Aug 29, 2010
+        start_date: Aug 30, 2010
         end_date: June 1, 2011
   exceptions:
     holidays:
