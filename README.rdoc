@@ -85,8 +85,8 @@ This key has two subkeys:
   * included_days
   
   I've seen schools have school days on a Saturday, in very rare circumstances. included_days list days where you would normally not have school (weekends)... but you do this year.
-  
-Days listed in any exceptions subkey have extreme override abilities - you could set your school year to end on June 1, 2011... but an included_day which includes June 2, 2011 means that June 2, 2011 is a school day.  
+
+Note that exceptional days should fall in the school year as a whole (see the above note about FixNum#school_days.from)
 
 == WHAT THIS GEM DOES NOT DO: 
 
