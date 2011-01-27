@@ -4,6 +4,10 @@ PostInstall.txt
 README.rdoc
 Rakefile
 lib/school_days.rb
+lib/extensions/date.rb
+lib/extensions/fixnum.rb
+lib/school_days/calculator.rb
+lib/school_days/config.rb
 rails_generators/school_days_config/USAGE
 rails_generators/school_days_config/school_days_config_generator.rb
 rails_generators/school_days_config/templates/school_days.rb
@@ -11,7 +15,14 @@ rails_generators/school_days_config/templates/school_days.yml
 script/console
 script/destroy
 script/generate
+test/fixtures/double_session_test.yml
+test/fixtures/invalid_config_test.yml
+test/fixtures/simple_test.yml
+test/test_config.rb
+test/test_date_extensions.rb
+test/test_fixnum_extensions.rb
 test/test_generator_helper.rb
 test/test_helper.rb
 test/test_school_days.rb
 test/test_school_days_config_generator.rb
+test/test_school_days_calculator.rb
