@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 
-class TestSchoolDaysCalculatorTest < Test::Unit::TestCase
+class TestSchoolDaysCalculator < Test::Unit::TestCase
 
   context "identifying if a date is in the range of the whole school year" do
     context "with a single session" do

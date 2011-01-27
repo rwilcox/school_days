@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 
-class TestDateExtensions < Test::Unit::TestCase
+class TestDateExtension < Test::Unit::TestCase
 
   context "Date instances" do
     setup do

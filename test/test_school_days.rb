@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestSchoolDays < Test::Unit::TestCase
+class TestSchoolDay < Test::Unit::TestCase
 
   def setup
   end

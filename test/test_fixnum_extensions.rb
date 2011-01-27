@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 
-class TestFixnumExtensions < Test::Unit::TestCase
+class TestFixnumExtension < Test::Unit::TestCase
 
   context "when adding a school day" do
     setup do
