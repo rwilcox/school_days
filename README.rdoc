@@ -156,10 +156,6 @@ The following are generated specifications for this gem. Computers know very lit
       when subtracting a school day should move to the previous session if we have multiple sessions. 
       when subtracting a school day should move to yesterday (if yesterday is a school day). 
       when subtracting a school day should skip exceptional holidays. 
-    Skipping TestGeneratorHelper because it doesn't map to a Class
-    Skipping TestHelper because it doesn't map to a Class
-    SchoolDay
-      test_truth
     SchoolDaysCalculator
       identifying if a date is in the range of the whole school year with a single session should return false when it falls OUTSIDE of the school year. 
       identifying if a date is in the range of the whole school year with a single session should return true when it falls in the school year. 
