@@ -13,7 +13,7 @@ Unlike Business Time, School Days focuses on the demands of keeping a school cal
 
 With School Days you can:
 
-  * 1.days.from_now.is_school_day
+  * 1.days.from_now.school_day?
   * Date.civil(2011, 05, 31).school_night?
   * 2.school_days.from_now
   
