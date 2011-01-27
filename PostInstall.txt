@@ -1,7 +1,2 @@
 
-For more information on school_days, see http://school_days.rubyforge.org
-
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
-
-
+For more information on school_days, see http://github.com/rwilcox/school_days
