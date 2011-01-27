@@ -88,6 +88,8 @@ This key has two subkeys:
 
 Note that exceptional days should fall in the school year as a whole (see the above note about FixNum#school_days.from)
 
+Example configure file can be found at: https://github.com/rwilcox/school_days/blob/master/rails_generators/school_days_config/templates/school_days.yml
+
 == WHAT THIS GEM DOES NOT DO: 
 
 This gem is meant for ONE school calendar. This gem does not address the situation where you are (for example) writing a state level website and have multiple school districts each with their own calendar.
