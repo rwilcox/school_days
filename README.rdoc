@@ -110,7 +110,7 @@ This gem also relies on manual configuration every year. It can not possibly kno
 * I use GitFlow <https://github.com/nvie/gitflow> to develop, so bonus points for that.
 
 
-== (GENERATE) Specifications for this gem
+== (GENERATED) Specifications for this gem
 
 The following are generated specifications for this gem. Computers know very little about making sense, *however* these should give you some idea of the capability of this gem
 
