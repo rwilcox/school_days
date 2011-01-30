@@ -21,6 +21,8 @@ module SchoolDays
       date
     end
     alias_method :from_now, :after
+    alias_method :since, :after
+
 
     def before(time = Time.now)
       # example: 2.school_days.after(tuesday)
